@@ -15,48 +15,61 @@ typedef pair<ll, int> plli;
 #define yes cout<<"Yes"<<endll
 #define no cout<<"No"<<endll
 #define pb push_back
-#define f(i,a,b) for( ll i = a; i < b ; i++ ) 
-#define fr(i,a,b) for(ll i = a; i >= b; i--)
+// #define f(i,a,b) for( ll i = a; i < b ; i++ ) 
+// #define fr(i,a,b) for(ll i = a; i >= b; i--)
 
-const int MX = 2*1e5 + 10;
-const ll mod = 998244353;      // 1e9+7
-
-template<typename T, typename V>
-ostream& operator << (ostream& os, pair<T, V> pr)
-{ 
-    os << "{" << pr.first << ", " << pr.second << "}"; 
-    return os;
-}
-
-template<template<class, class> class Container, typename T>
-void PRINT(const Container<T, allocator<T>>& container)
-{ cout<<"[ "; for(auto el : container) cout << el << " "; cout<<"]\n"; }
-
-// template<class T>
-// void PRINT(multiset<T>& ms) { cout<<"[ "; copy(all(ms), ostream_iterator<ll>(cout, " ")); cout<<"]";}
-
-const int sz = 2*1e5+10;
+const int MX = 1e5 + 10;
+const ll mod = 1e9+7;      // 998244353
 const ll INF = 1LL<<20;
+
+// template<typename T, typename V>
+// ostream& operator << (ostream& os, pair<T, V> pr)
+// { os << "{" << pr.first << ", " << pr.second << "}";  return os; }
+
+// template<template<class, class> class Container, typename T>
+// ostream& operator<<(ostream& os, const Container<T, allocator<T>>& container)
+// { os<<"[ "; for(auto el : container) os << el << " "; os<<"]"; return os; }
+
+// template<
+//     template<class, class> class C1,
+//     template<class, class> class C2,
+//     typename T
+// >
+// bool container_equal(
+//     const C1<T, allocator<T>>& c1,
+//     const C2<T, allocator<T>>& c2
+// )
+// {
+//     if (c1.size() != c2.size())
+//         return false;
+//     auto itc1 = c1.begin();
+//     auto itc2 = c2.begin();
+
+//     for (; itc1 != c1.end(); ++itc1, ++itc2)
+//         if (*itc1 != *itc2)
+//             return false;
+//     return true;
+// }
+
+// bool isPrime(int n) {
+//     if(n <= 1)
+//         return false;
+//     for(int i = 2; i <= sqrt(n); i++) {
+//         if(n % i == 0)
+//             return false;
+//     }
+//     return true;
+// }
+
+// bool mod_(ll num) { 
+//     if (num > mod)
+//         return num - mod;
+//     return num;
+// }
 
 void solve()
 {
-    ll N, M;
-    cin>>N>>M;
-    vector<ll> H(N), T(M);
-    for (ll& hi: H) cin >> hi;      // price of each ticket
-    for (ll& ti: T) cin >> ti;      // max price for each customer
 
-    sort(all(H));
-    // sort(all(T));
-
-    PRINT(H);
-    PRINT(T);
-
-    ll i = size(H) - 1, j = size(T) - 1;
-    for (ll& hi : T)
-    {
-        cout << *lower_bound(all(T), hi) << " ";
-    }
 }
 
 int main() 
@@ -67,7 +80,6 @@ int main()
 #endif
 //     time_t start, end;
 //     time(&start);
-
     speed;
 
     ll T = 1;
@@ -83,3 +95,6 @@ int main()
 // #endif
     return 0;
 }
+
+/*
+*/
