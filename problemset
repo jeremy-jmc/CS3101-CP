@@ -1,16 +1,75 @@
-Kattis:
-Different -> Resta entre numeros(<=1e15)
-Bosnumbers
-Server ->
+        S1
+
+Kattis
+    Different -> Resta entre numeros(<=1e15)
+    Busnumbers -> Acortar numeros consecutivos
+    Server -> disminuir hasta que sea posible
+    Cold -> number of negative numbers
+        Mandelbrot -> "Enunciadazo"
+    Natrij -> Diferencia de 2 horas
+    Pathtracing -> Trazado de path
+        up
+        down
+        left
+        right
+        right
+        left
+        down
+
+UVA
+    UVA441 Lotto
+        Subset of only six numbers in increasing order(6 for's)
+    UVA725 Division
+        two numbers A, B such that A/B = N and A, B use the digits 0-9 once each among them
+    UVA11565
+        find three numbers x, y, z such that
+            x + y + z = A
+            xyz = B
+            x^2 + y^2 + z^2 = C
+        equations
+        find boundaries to reduce the complete search
+            1 <= A, B, C <= 10000
+    UVA12455 Bars
+        subset for each bit
+            N <= 1000 thus N have at most 9 bits (log2(1000))
+                recursion depth = 9 bits
+                    in the level-th depth of the recursion find all numbers that can contribute with it level-th bit in 1 (on)
+                        two options
+                            pick
+                            don't pick
+                        previously marked as visited in vis[] array
     
-Cold
-    Mandelbrot -> "Enunciadazo"
-Natrij -> Diferencia de 2 horas
-Pathtracing -> Trazado de path
-    up
-    down
-    left
-    right
-    right
-    left
-    down
+        S2
+
+Kattis 
+    Closest Sums
+        Kattis Sylvester
+            print the submatrix from given (X, Y) with width W and height H
+            of the H_2n Haddamard matrix
+
+            IDEAS: Divide&Conquer
+        Kattis Ballotboxes
+            given a number of cities N and B ballot boxes
+            find the maximum number of people to one ballot boxes if we distributed the ballot boxes in the most efficient assignment
+            
+            IDEAS: mochila fraccionaria
+UVA
+        UVA750 8 Queen Chess Problem
+            https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=691
+
+    UVA10344 23 out of 5
+        WARNING: sort() before next_permutation(), biyective function (permutations)
+
+        UVA10276 Hanoi Tower Troubles Again!
+            Given N (1 <= N <= 50) pegs. 
+            Place the numbers in the pegs such that the sum between two adjacent balls is a square number
+                Prove from what number is infinite
+                Find the subproblem (induccion)
+            
+            https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=1217
+
+
+CSES
+    CSES2165
+        Tower of Hanoi
+            Divide & Conquer

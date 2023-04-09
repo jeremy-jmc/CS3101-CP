@@ -30,42 +30,6 @@ template<template<class, class> class Container, typename T>
 ostream& operator<<(ostream& os, const Container<T, allocator<T>>& container)
 { os<<"[ "; for(auto el : container) os << el << " "; os<<"]"; return os; }
 
-// template<
-//     template<class, class> class C1,
-//     template<class, class> class C2,
-//     typename T
-// >
-// bool container_equal(
-//     const C1<T, allocator<T>>& c1,
-//     const C2<T, allocator<T>>& c2
-// )
-// {
-//     if (c1.size() != c2.size())
-//         return false;
-//     auto itc1 = c1.begin();
-//     auto itc2 = c2.begin();
-
-//     for (; itc1 != c1.end(); ++itc1, ++itc2)
-//         if (*itc1 != *itc2)
-//             return false;
-//     return true;
-// }
-
-// bool isPrime(int n) {
-//     if(n <= 1)
-//         return false;
-//     for(int i = 2; i <= sqrt(n); i++) {
-//         if(n % i == 0)
-//             return false;
-//     }
-//     return true;
-// }
-
-// bool mod_(ll num) { 
-//     if (num > mod)
-//         return num - mod;
-//     return num;
-// }
 
 vector<pair<char, char>> vpp;
 void hanoi(int disks, char source, char aux, char destiny)
@@ -90,8 +54,8 @@ void solve()
 int main() 
 {
 // #ifndef TEST
-//     freopen("input.in", "r", stdin);
-//     freopen("output.out", "w", stdout);
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
 // #endif
     // time_t start, end;   
     // time(&start);
