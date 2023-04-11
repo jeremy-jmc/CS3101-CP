@@ -67,24 +67,18 @@ ostream& operator<<(ostream& os, const Container<T, allocator<T>>& container)
 //     return num;
 // }
 
-vector<pair<char, char>> vpp;
-void hanoi(int disks, char source, char aux, char destiny)
-{
-    if (disks == 0)
-        return;
-    hanoi(disks-1, source, destiny, aux);
-    vpp.pb({source, destiny});
-    // cout << source << " " << destiny << endll;
-    hanoi(disks-1, aux, source, destiny);
-}
 void solve()
 {
     ll N;
-    cin>>N;
-    hanoi(N, '1', '2', '3');
-    cout << vpp.size() << endll;
-    for (auto [f, s] : vpp)
-        cout << f << " " << s << endll;
+    cin >> N;
+    ll ans = 1, denom;
+    for (int i = 2; i <= N + 1; i++)
+    {
+        denom = ((i-1)/2 == 0) ? 1 : (i-1)/2;
+        ans *= (denom+1);
+        ans /= (denom);
+    }
+    cout << ans - 1 << endll;
 }
 
 int main() 
@@ -97,10 +91,11 @@ int main()
     // time(&start);
     speed;
     ll T = 1;
-    // cin>>T;
+    cin>>T;
+    
     while (T--)
         solve();
-
+    
     // time(&end);
     // double time_taken = double(end - start);
     // cout << "\nTime: " << fixed << time_taken << setprecision(5) << " sec " << endl;

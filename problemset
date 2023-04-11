@@ -48,6 +48,7 @@ Kattis
             of the H_2n Haddamard matrix
 
             IDEAS: Divide&Conquer
+            https://open.kattis.com/problems/sylvester
         Kattis Ballotboxes
             given a number of cities N and B ballot boxes
             find the maximum number of people to one ballot boxes if we distributed the ballot boxes in the most efficient assignment
@@ -59,17 +60,55 @@ UVA
 
     UVA10344 23 out of 5
         WARNING: sort() before next_permutation(), biyective function (permutations)
+            next_permutation() trabaja lexicograficamente por eso se debe sortear previamente
 
         UVA10276 Hanoi Tower Troubles Again!
             Given N (1 <= N <= 50) pegs. 
             Place the numbers in the pegs such that the sum between two adjacent balls is a square number
                 Prove from what number is infinite
+                    distance between consecutive squares
+                        (x+1)^2 - x^2 = (x+1 + x) * (x+1 - x) = 2x + 1
+                
                 Find the subproblem (induccion)
             
             https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=1217
 
+            Probar
+                Encontrar la serie de las bases de los palos
+                A partir de ello encontrar y probar q un numero contribuye a una construccion de (b)^2 y (b+1)^2
+                    Encontrar intersecciones
+                Y con eso de demuestra que nunca va ser infinito
 
+    Kayaks
+        N <= 10         # teams
+        S <= N          # teams with damaged kayaks
+        R <= N          # teams with reserved kayaks
+
+
+        N S R
+        s_1 ... s_S
+        r_1 ... r_R
+    F - Podio
+        ranking scheme
+        consider weight vectors of the form
+            (1/n^j, 1/n^k, 1/n^l) 
+                where n is the total number of medals won by athletes
+                j, k and l are integers
+            find a weight vector if exists
+                Canada wins!
+            else
+                Canada cannot win
+        IDEA: iterar inteligentemente los posibles valores de los exponentes
 CSES
     CSES2165
         Tower of Hanoi
             Divide & Conquer
+
+
+Canada 3 2 1
+USA 1 2 3
+    1/12^
+
+USA 2 2 2
+Canada 1 1 1
+    1/9^
