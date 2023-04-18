@@ -112,3 +112,23 @@ USA 1 2 3
 USA 2 2 2
 Canada 1 1 1
     1/9^
+
+
+
+ASSUMPTION 1
+
+(n^x1, n^x2, n^x3)
+(n^0, n^(x2-x1), n^(x3-x2))
+
+ASSUMPTION 2
+n = 100
+
+ASSUMPTION 3
+exponentes van a ser relativamente peque;os
+
+Hay un arrastre con piso de sqrt por eso se usa piso
+
+
+SPOJ LASTDIG
+SPOJ LOCKER
+Kattis Need for Speed
