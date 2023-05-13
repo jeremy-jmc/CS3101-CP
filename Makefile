@@ -1,2 +1,2 @@
 cf:
-	g++ cf.cpp -std=c++17 && a.exe
+	g++ cp.cpp -std=c++17 && a.exe

@@ -130,5 +130,103 @@ Hay un arrastre con piso de sqrt por eso se usa piso
 
 
 SPOJ LASTDIG
+    Last digit of a^b
+        a <= 20
+        b <= 214748300
 SPOJ LOCKER
 Kattis Need for Speed
+D str
+    st <= 1e4
+    
+
+DP
+    1, 6, 7 coins -> greedy falla
+    fibonacci
+        inclusion de una estructura que te guarde data precalculada
+
+
+Mayusculas?
+
+OPT(i, 0) -> min # mov para que la cadena termine en minuscula
+
+OPT(i, 0) = {
+    i es mayuscula
+        OPT(i-1, 0) + 1
+    i es minuscula
+        OPT(i-1, 0)
+}
+
+
+OPT(i, 1) -> min # mov para que la cadena termine en mayuscula
+
+OPT(i, 1) = {
+    i es mayuscula
+        min(OPT(i-1, 0), OPT(i-1, 1));
+    i es minuscula
+        min(OPT(i-1, 0), OPT(i-1, 1)) + 1;
+}
+
+
+
+OPT(i, 0) -> min # mov para que la cadena empiece en minuscula
+
+OPT(i, 0) = {
+    i es mayuscula
+        OPT(i+1, 0) + 1
+    i es minuscula
+        OPT(i+1, 0)
+}
+
+
+OPT(i, 1) -> min # mov para que la cadena empiece en mayuscula
+
+OPT(i, 1) = {
+    i es mayuscula
+        min(OPT(i+1, 0), OPT(i+1, 1));
+    i es minuscula
+        min(OPT(i+1, 0), OPT(i+1, 1)) + 1;
+}
+
+
+2N: # rooms
+K: # rooms to close
+target: maximizar la suma de los valores de los rooms abiertos/minimizar la suma de los rooms cerrados
+
+i -> altura de la galeria
+k -> # rooms cerrados
+j -> accion ejecutada (0: pasar, 1: cerrar left, 2: cerrar right)
+R -> rooms
+    R[i][1] -> valor del room i izquierdo
+    R[i][2] -> valor del room i derecho
+
+OPT(i, k, j) = minimo valor de k rooms cerrados para galeria de altura i ejecutando la accion j.
+        k <= i
+        k > i   -> INF
+
+OPT(i, k, j) = {
+    j == 0      -> pasar
+            min(
+                OPT(i-1, k, 0),
+                OPT(i-1, k, 1),
+                OPT(i-1, k, 2)
+            ) + 0
+    j == 1    -> cerrar left
+            min(
+                OPT(i-1, k-1, 0),
+                OPT(i-1, k-1, 1)
+            ) + R[i][1]
+    j == 2  -> cerrar right
+            min(
+                OPT(i-1, k-1, 0),
+                OPT(i-1, k-1, 2)
+            ) + R[i][2]
+}
+
+La respuesta se encuentra en min(OPT(N, K, 0), OPT(N, K, 1), OPT(N, K, 2))
+
+
+
+CSES
+    Labyrinth
+Codeforces
+        277A Learning Languages
