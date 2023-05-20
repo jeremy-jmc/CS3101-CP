@@ -230,3 +230,20 @@ CSES
     Labyrinth
 Codeforces
         277A Learning Languages
+
+PARCIAL
+    A - Facebook
+1, 2, .. n posts in the field
+n+1, n+2, ... infinite posts in the field
+
+    B - Tsuyu
+N stones
+1, 2, ..., N
+heigh of i-th stone is h_i
+DP
+    C - Dividivi
+    D - Titospuntitos
+    E - I have strings but now, im free
+    F - Froppy
+    G - Tinkuy
+    H - Tricolor
