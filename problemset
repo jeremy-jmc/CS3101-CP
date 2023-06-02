@@ -247,3 +247,39 @@ DP
     F - Froppy
     G - Tinkuy
     H - Tricolor
+
+
+Dijskstra, Prim, Kruskal, Bellman Ford
+
+A - Dijstra
+    given a weighted undirected graph
+    find the shortest path between vertex 1 and vertex N
+
+    output: the shortest path
+
+B - caminos1
+    N cities
+    M roads
+    repair some roads so that will be a decent rout between any two cities
+        connected components
+    for each road you know its reparation cost and you should find a solution where the total cost is a small as posible
+    MST -> phibrain template
+
+C - caminos2
+    N cities
+    M roads to build
+    after each day the task is find the number of components and the size of the largest component
+
+D - caminos3
+    list of cities
+    minimum path between two nodes
+
+E - Science!
+
+F - aquel arbolito
+    1 <= N <= 20000
+    1 <= M <= 30000
+    output
+        MST (cost, edges or IMPOSSIBLE)
+
+G - smash
