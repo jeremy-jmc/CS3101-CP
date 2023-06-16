@@ -283,3 +283,63 @@ F - aquel arbolito
         MST (cost, edges or IMPOSSIBLE)
 
 G - smash
+
+
+
+LAB8 - MATE
+
+A Potion making
+    magic essence + water
+        k % magic essence
+        (100-k)% water
+
+        100/gcd
+
+B Burenka Plays with Fractions
+    transformar la fraccion a/b a c/d con el minimo numero de steps
+    abc c
+    bad d
+    
+
+C Triangles on a Rectangle
+    maximizar el area del triangulo determinada por los puntos latice seteados en el borde de un cuadrado
+    
+D BowWow and the Timetable
+    Cuantos 2^(2K) con menores que 2^N
+    Casitos
+
+E Arranging The Sheep
+F Binary Strings are Fun
+G Sum of Odd Integers
+    N, K
+    Checkar se puede representar N como la sumatoria de K impares positivos distintos
+
+H Buying Shovels
+I Pluses and Minuses
+J Maring and Anti-coprime Permutation
+F Pala
+
+
+
+MATE2
+
+A - cripto
+    n a b c
+    m = n*a + b - c
+    l <= a, b, c <= r
+    m
+B - binomio
+    Binomial Coefficients CSES
+    C(A, B) % (1e9+7)
+    https://www.youtube.com/watch?v=R0O3kloGb7Q
+    https://www.youtube.com/watch?v=3Cb0ys-jppU
+    https://en.wikipedia.org/wiki/Fermat%27s_little_theorem
+C - estrategia
+    k stages
+    maximum K such Alice can win
+
+    Game Theory
+D - cocina
+E - dividivi
+    CSES Divisor Analysis
+F - primitos
