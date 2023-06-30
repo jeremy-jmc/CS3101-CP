@@ -73,3 +73,127 @@ Dado $l \leq a,b,c \leq r$ y $n.a + b - c = m$ nos lleva a ver que el valor de $
 
 
 
+## A - utec_alumnos
+**tema**
+grafos, componentes conexas, DSU
+
+**descripción**
+N vertices, M aristas se desea saber si el grafo esta conectado, en caso no lo este se requiere ver que aristas no estan conectadas con el nodo 1.
+Se corre DSU con Kruskal y se compara cada elemento con el parent del nodo 1 para saber si pertenece a su mismo conjunto, de ese modo se sabe que elementos no estan conectados con este por algun camino.
+
+A partir de saber que nodos no estan conectados con el 1 se puede saber si el grafo es conexo o no.
+
+**complejidad**
+Kruskal DSU con union by rank y path compression = O(M log N)
+
+
+## B - maxsumarray
+**tema**
+Segment Tree, Data Structures, Divide & Conquer
+
+**complejidad**
+construccion: O(n), consulta: O(1), actualizacion: O(logN)
+
+**descripción**
+El problema se parece el maxsubarray sum que se hacia con divide and conquer.
+
+La idea es o tomar la mayor parte derecha, la mayor parte izquierda o la suma conjunta de los subsegmentos intermedios conocidos como prefijos y sufijos.
+
+el update cambia a ser la maxima suma derecha, izquierda o la parte del medio entre los arrays maxima suma derecha e izquierda conformado por los sufijos del lado izquierdo y el prefijo del lado derecho `t[n] =  max(max(t[l], t[r]), suff[l] + pref[r])`, ademas los prefijos y sufijos se actualizan con los hijos y se mantiene un array de la suma total para la reconstruccion de los prefijos y sufijos.
+
+## C - siempre fue grafos
+**complejidad**
+Kruskal DSU con union by rank y path compression = O(M log N) + O(N) (eleccion de aristas que cambiar)
+
+**tema**
+grafos, componentes conexas, DSU
+
+**descripción**
+el problema te da N vertices y N-1 aristas de modo que son las aristas suficientes para generar un arbol, entonces te pide eliminar aristas y agregar nuevas para llegar a que todo el grafo este conexo.
+
+Se hallan las componentes conexas con Kruskal, y arista que no realice un join, se agrega a un conjunto de aristas sobrantes que serviran para transformar el grafo actual a arbol.
+
+Una vez se tienen las aristas sobrantes se toma una arista sobrante arbitraria y 2 parents de sets arbitrarios para reconstruir. Como se sabe que al final se mantendran N-1 aristas la respuesta siempre existe.
+
+## D - mitasu
+**complejidad**
+construccion: O(n), consulta: O(lgN), actualizacion: O(logN)
+final O(QlgN) siendo M el numero de queries
+
+**tema**
+Segment Tree, Data Structures, Divide & Conquer
+
+**descripción**
+un array de N elementos y Q consultas que pueden ser de update o consulta de suma en rango
+
+Se utiliza un sum segment tree para calcular la suma en rango en tiempo eficiente, la dificultad del problema esta en no confundirte con el indexing.
+
+
+## E - windows 97
+**complejidad**
+construccion: O(n), consulta: O(lgN), actualizacion: O(logN)
+final O(MlgN) siendo M el numero de queries
+
+**tema**
+Segment Tree, Data Structures, Divide & Conquer
+
+**descripción**
+un array de N elementos y M consultas que pueden ser de update o consulta en rango denotas por F y C respectivamente.
+
+Se utiliza un sum segment tree  para calcular la suma en rango dado que eso es igual a la cantidad de 1s en el rango que es lo que pide el problema.
+Las actualizaciones de 1 a 0 no cambia porque la suma de 0s y 1s es el numero de 1s en cierto rango
+
+
+### A
+**tema**
+strings, KMP
+
+**complejidad**
+O(n) por el calculo de la funcion pi[i] para toda posicion i en el stringen
+
+
+**descripcion**
+el problema especificamente solicita el calculo de la funcion pi[i], la cual calcula la longitud del maximo substring prefijo que a la vez es sufijo en el substring s[1...i], esto se logra con un enfoque naive en O(n^3) comparando substrs todos contra todos. Pero se puede lograr en O(n) usando informacion y propiedades de estados anteriores de la funcion (KMP)
+
+
+### B
+
+**tema**
+suffix array
+
+**complejidad**
+O(N logN logN), donde N logN proviene de los ordenamientos en cada iteracion del algoritmo, y log N del tamaño del string representativo, relativo a la potencia de 2 mas cercana.
+final: O(N log^2 N)
+
+**descripcion**
+
+construir el arreglo de sufijos e imprimirlo
+
+
+
+### C
+**tema**
+string matching, KMP
+
+**complejidad**
+O(N+M) donde N es el tamaño del patrong de consulta y M el tamaño del string donde se busca
+
+**descripcion**
+contar el numero de veces que se repite un patron en un string. Se logra concatenando el patron con un caracter nulo "$" y el string total para luego ejecutar consultas sobre el arreglo pi[] tal que pi[i] tenga el tamaño del patron de consulta. A diferencia del problema C, uno cuenta posiciones, mientras que el otro imprime las posiciones donde se encuentran los patrones.
+
+
+### F
+
+**tema**
+string matching, KMP
+
+**complejidad**
+O(N) para construir el arreglo pi con el algoritmo KMP
+
+**descripcion**
+Para encontrar el minimo substring S' el cual contenga a S dado multiples repeticiones (S' = S' + S' + ... + S'), se debe encontrar el maximo prefijo que tambien es sufijo, de modo que por los TC probablemente exista un overlap entre ellos.
+
+Se usa el approach greedy (suerte + corazon) de extraer el substring del overlap con el calculo `n - pi[n-1]`, y pasa todos los TC :v
+
+
+

@@ -343,3 +343,23 @@ D - cocina
 E - dividivi
     CSES Divisor Analysis
 F - primitos
+
+
+LAB11
+
+A - s0
+    border of a string
+        is a prefix that is alaso a suffix
+
+    find all border lenghts of a given string
+B - s1
+    number of ocurrences of pattern in text
+C - s2
+    contar el numero de posiciones donde el patron ocurre en el string
+D - s3
+
+
+/*
+O(n+m)
+
+*/
