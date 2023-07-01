@@ -363,3 +363,16 @@ D - s3
 O(n+m)
 
 */
+
+LAB12
+G5
+outer and inner polygon
+
+se puede ver que una solucion optima esta en una esquina del inner polygon (corazon)
+
+para cada punto del inner polygon
+    para cada segmento del outer polygon
+        radius = min(radius, distancia_minima_de_punto_actual_a_segmento_actual)
+
+G4
+calcular el ratio entre el area de las cajas y el area del convex hull
