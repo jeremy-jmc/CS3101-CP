@@ -6,6 +6,9 @@
         "type_traits": "cpp",
         "xstring": "cpp",
         "xutility": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "tuple": "cpp"
     }
 }

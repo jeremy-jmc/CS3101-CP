@@ -195,5 +195,121 @@ Para encontrar el minimo substring S' el cual contenga a S dado multiples repeti
 
 Se usa el approach greedy (suerte + corazon) de extraer el substring del overlap con el calculo `n - pi[n-1]`, y pasa todos los TC :v
 
+# GEOMETRIA
+
+### A
+
+**tema**
+vectores, angulos polares
+
+**descripcion**
+Dado un punto y angulo inicial (90) se desea calcular la posicion final de un recorrido definido por una cantidad N de pares (angulo, distancia) que representan 1 movimiento.
+
+La solucion se encuentra en actualizar la posicion actual (x, y) sumandole las componentes de movimiento descomponiendo el vector (angulo, distancia) con `sen` y `cos`. Adicionalmente el `std::sin` y `std::cos` reciben el angulo en radianes por lo que una transformacion es necesaria antes de utilizarlos.
+
+**complejidad**
+O(N)
 
 
+Kattis Vacuumba
+
+### B
+
+**tema**
+convex hull, calculo de areas
+
+**descripcion**
+Dado un conjunto de balizas, se tiene un robot que patrulla yendo de una baliza a otra aleatoriamente.
+Se solicita calcular el area que el robot puede patrullar.
+
+Se puede ver que dado un conjunto de balizas el poligono generado por la convex hull es el area que cubre el robot porque en peor caso el robot se desplaza por los bordes del convex hull, osea de la baliza i a la baliza i+1 donde i es el indice del i-esimo punto del convex hull.
+
+**complejidad**
+O(N log N) construccion de convex hull con el algoritmo Monotone Chain
+O(N) calculo del area del poligono comprendido por la convex hull.
+
+### C
+
+**tema**
+geometria, poligonos, areas
+
+**descripcion**
+
+calcular el area de un poligono dado n puntos. la implementacion usa la siguiente formula para cada edge.
+
+$$\sum_{(p,q) \in \text{edges}} \frac{(p_x - q_x)(p_y + q_y)}{2}$$
+
+Donde $(p_x - q_x)$ es la altura del trapecio limitado por el eje x, y $(p_y + q_y)$ representa la suma de las bases. De este modo se pueden calcular áreas positivas y negativas lo que resulta en la sumatoria del area real.
+
+Se determina si es CCW o CW sabiendo el signo del area del poligono dado (+) (-) para CCW y CW, respectivamente.
+
+**complejidad**
+
+O(n) calculo del area
+O(1) saber si es CW o CCW
+
+### D
+
+**tema**
+poligonos, distancia entre punto y segmento
+
+**descripcion**
+
+Dado 2 poligonos (1 poligono inscrito en el otro) se desea calcular el radio maximo de una esfera que pueda recorrer sobre el area generada "restando" el poligono interno del externo.
+
+Se puede ver que la solucion esta en alguno de los vertices del poligono interno, para eso se calcula la distancia minima de cada vertice del poligono interno, con cada uno de los segmentos del poligono exterior. Esta distancia representa el diametro por lo cual se divide / 2 y se devuelve el resultado minimo
+
+Se puede simplificar el calculo de la distancia minima de un punto a un segmento, encontrando el punto mas cercano del punto al segmento y luego hallar su distancia, se puede ver en la implementacion.
+
+**complejidad**
+
+O(N_i * N_o) donde N_i es el numero de vertices del poligono interior y N_o es el numero de vertices/aristas/segmentos del poligono exterior.
+
+### E
+
+**tema**
+convex hull
+
+**descripcion**
+Dado un conjunto de cajas representadas por (punto, angulo, height, width) determinar el ratio entre la suma de areas de las cajas y la `convex hull` que las comprende.
+
+Antes de calcular el `convex hull` se tiene que descomponer la tripla (punto, angulo, height, width) en los 4 puntos que representan el area rectangular.
+
+
+**complejidad**
+- O(N lg N) construccion de convex hull con el algoritmo Monotone Chain
+- O(N) calculo del area del poligono comprendido por la convex hull.
+- O(1) calculo del ratio entre sumatoria de areas de cajas y convex hull.
+
+Final O(N lg N)
+
+### F
+
+**tema**
+data structures, triangle area
+
+**descripcion**
+Dado n+1 puntos, que forman n segmentos, se desea eliminar tantos puntos sea posible (bajo un criterio) hasta llegar a la cantidad 'm' deseada.
+
+El criterio de eliminacion de puntos es tomar el punto centrico de la tripla $(p_{i-1}, p_i, p_{i+1})$ cuya area triangular sea la minima.
+
+Se puede ver que al eliminar un punto $p_i$ arbitrario se generan a lo mucho 2 nuevas regiones triangulares y se eliminan a lo mucho 3 regiones triangulares. Ejemplo:
+
+- eliminar $p_1$ involucra agregar el nuevo triangulo $(p_0, p_2, p_3)$ y agregar $(p_0, p_1, p_2)$, $(p_1, p_2, p_3)$
+- eliminar $p_6$ involucra agregar $(p_5,p_7,p_8)$, $(p_4,p_5,p_7)$ y eliminar $(p_4, p_5, p_6)$, $(p_5, p_6, p_7)$, $(p_6, p_7, p_8)$
+
+Lo cual requiere de una estructura de datos dinamica que admita inserciones y eliminaciones en tiempo eficiente.
+Se utilizara un heap de pares de distancia y tripla $(dist, (prev_j, j, post_j))$ donde $prev_j$ y $post_j$ son los indices previos y posterior a $j$ que no han sido eliminados. La insercion en heap es logaritmica lo cual es eficiente. Sin embargo la eliminacion de los indices se manejara durante la ejecucion del algoritmo, si es que el triangulo con distancia minima (root del heap) contiene algun punto eliminado, omitiendose.
+
+Ademas se usan 2 arrays $prev$ y $post$ donde $prev[i]$ $post[i]$ representan los indices previos y posterior del elemento $i$ tal que no hayan sido eliminados en alguna iteracion del algoritmo.
+
+**complejidad**
+
+construccion del heap O(N lg N) porque se realiza con N `std::priority_queue::push`, se puede usar `std::priority_queue::make_heap`.
+
+algoritmo O(N lg N) por los `std::pop` y porque se mantienen los eliminados en la estructura omitiendose en caso se encuentren.
+
+Final O(N lg N)
+
+# Media
+https://www.youtube.com/watch?v=Zo7Hb-5ePOo
